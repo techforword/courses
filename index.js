@@ -10,7 +10,7 @@ app.listen(PORT, () => {
   console.log(`API listening on PORT ${PORT}...`)
 })
 
-app.get("/", async (req, res) => {
+const fetchData = async (url, res) => {
   try {
     const fetchOptions = {
       headers: {
@@ -18,14 +18,30 @@ app.get("/", async (req, res) => {
       },
     }
 
-    const fetchResponse = await fetch(process.env.URL, fetchOptions)
-    const courses = await fetchResponse.json()
+    const fetchResponse = await fetch(url, fetchOptions)
+    const data = await fetchResponse.json()
 
-    res.json({ courses })
+    res.json({ data })
   } catch (error) {
     console.error(error)
     res.status(500).send("Internal Server Error")
   }
+}
+
+app.get("/courses", (req, res) => {
+  fetchData(process.env.COURSES_URL, res)
+})
+
+app.get("/enrollments", (req, res) => {
+  fetchData(process.env.COURSES_URL, res)
+})
+
+app.get("/course", (req, res) => {
+  fetchData(process.env.COURSE_URL, res)
+})
+
+app.get("/users", (req, res) => {
+  fetchData(process.env.USERS_URL, res)
 })
 
 module.exports = app
