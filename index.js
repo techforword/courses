@@ -7,9 +7,12 @@ const PORT = 3000
 
 app.use(cors())
 
-const countUpPath = path.join(__dirname, "public")
+const publicPath = path.join(__dirname, "public")
 
-app.use("/countup", express.static(countUpPath))
+app.get("/countup/countUp.min.js", (req, res) => {
+  const filePath = path.join(publicPath, "countUp.min.js")
+  res.sendFile(filePath)
+})
 
 app.listen(PORT, () => {
   console.log(`API listening on PORT ${PORT}...`)
