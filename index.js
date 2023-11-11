@@ -1,10 +1,15 @@
 const express = require("express")
 const cors = require("cors")
+const path = require("path")
 
 const app = express()
 const PORT = 3000
 
 app.use(cors())
+
+const countUpPath = path.join(__dirname, "public")
+
+app.use("/countup", express.static(countUpPath))
 
 app.listen(PORT, () => {
   console.log(`API listening on PORT ${PORT}...`)
