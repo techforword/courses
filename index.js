@@ -33,7 +33,7 @@ app.get("/courses", (req, res) => {
 })
 
 app.get("/enrollments", (req, res) => {
-  fetchData(process.env.COURSES_URL, res)
+  fetchData(process.env.COURSES_ENROLLMENTS_URL, res)
 })
 
 app.get("/course", (req, res) => {
