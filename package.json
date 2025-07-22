@@ -3,6 +3,9 @@
   "version": "1.0.3",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "serve": "nodemon index.js",
     "start": "node index.js"
