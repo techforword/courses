@@ -189,7 +189,9 @@
       log("Starting TechForWord stats initialization...");
 
       // Load CountUp library
-      const { CountUp } = await import("./countUp.min.js");
+      const { CountUp } = await import(
+        "https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.1.0/countUp.min.js"
+      );
 
       // Make CountUp available globally
       window.CountUp = CountUp;
