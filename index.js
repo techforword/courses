@@ -47,4 +47,9 @@ app.get("/users", (req, res) => {
   fetchData(process.env.USERS_URL, res);
 });
 
+// Explicit route for the minified script
+app.get("/techforword-stats.min.js", (req, res) => {
+  res.sendFile(__dirname + "/public/techforword-stats.min.js");
+});
+
 module.exports = app;
