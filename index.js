@@ -52,4 +52,9 @@ app.get("/techforword-stats.min.js", (req, res) => {
   res.sendFile(__dirname + "/public/techforword-stats.min.js");
 });
 
+// Serve index.html on root path
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
+
 module.exports = app;
